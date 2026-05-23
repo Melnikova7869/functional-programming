@@ -10,7 +10,7 @@ const filterByProperty = (arr, prop) => arr.filter(obj => obj.hasOwnProperty(pro
 // 4. Сумма чисел
 const getSum = (arr) => arr.reduce((sum, n) => sum + n, 0);
 
-// 5. Функция высшего порядка (аналог map)
+// 5. Функция высшего порядка 
 const mapArray = (fn, arr) => arr.map(fn);
 
 // 6. Сумма квадратов четных чисел
@@ -25,7 +25,6 @@ const averageGreaterThan = (arr, prop, threshold) => {
     return valid.length ? getSum(valid) / valid.length : null;
 };
 
-// Данные для тестов
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const objects = [
@@ -34,7 +33,6 @@ const objects = [
     { id: 3, name: 'no value' }
 ];
 
-// Вывод результатов
 console.log('1. Четные числа:', getEvenNumbers(numbers));
 console.log('2. Квадраты:', getSquares(numbers));
 console.log('3. Объекты со свойством value:', filterByProperty(objects, 'value'));
