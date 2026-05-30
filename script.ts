@@ -1,6 +1,4 @@
-// ============================================================
 // ЧИСТЫЕ ФУНКЦИИ ДЛЯ МАТЕМАТИЧЕСКИХ ОПЕРАЦИЙ
-// ============================================================
 
 type BinaryOperation = (a: number, b: number) => number;
 type UnaryOperation = (a: number) => number;
@@ -25,9 +23,7 @@ const squareRoot: UnaryOperation = (a) => {
     return Math.sqrt(a);
 };
 
-// ============================================================
 // ФУНКЦИЯ ВЫСШЕГО ПОРЯДКА ДЛЯ ЛОГИРОВАНИЯ
-// ============================================================
 
 const withLogging = <T extends (...args: any[]) => any>(
     fn: T,
@@ -47,9 +43,7 @@ const withLogging = <T extends (...args: any[]) => any>(
     };
 };
 
-// ============================================================
 // ФУНКЦИЯ ВЫСШЕГО ПОРЯДКА ДЛЯ СОЗДАНИЯ ОПЕРАЦИЙ
-// ============================================================
 
 const createBinaryOperation = (operation: BinaryOperation, name: string) => {
     return withLogging(operation, name);
@@ -62,18 +56,14 @@ const loggedMultiply = createBinaryOperation(multiply, 'умножение');
 const loggedDivide = createBinaryOperation(divide, 'деление');
 const loggedPower = createBinaryOperation(power, 'возведение в степень');
 
-// ============================================================
 // СОСТОЯНИЕ ПРИЛОЖЕНИЯ
-// ============================================================
 
 let currentInput: string = '';
 let previousValue: number | null = null;
 let currentOperator: string | null = null;
 let waitingForNewInput: boolean = false;
 
-// ============================================================
 // ЧИСТЫЕ ФУНКЦИИ ДЛЯ ОБРАБОТКИ ВВОДА
-// ============================================================
 
 const appendNumber = (input: string, number: string): string => {
     if (number === '.' && input.includes('.')) return input;
@@ -106,9 +96,7 @@ const calculateResult = (
     }
 };
 
-// ============================================================
 // ФУНКЦИИ ДЛЯ РАБОТЫ С DOM
-// ============================================================
 
 const updateDisplay = (value: string): void => {
     const display = document.getElementById('display') as HTMLInputElement;
@@ -127,9 +115,7 @@ const showError = (message: string): void => {
     }
 };
 
-// ============================================================
 // ОСНОВНАЯ ЛОГИКА ПРИЛОЖЕНИЯ (ИММУТАБЕЛЬНОЕ ОБНОВЛЕНИЕ)
-// ============================================================
 
 const handleNumberClick = (number: string): void => {
     if (waitingForNewInput) {
@@ -226,9 +212,7 @@ const handleClearClick = (): void => {
     updateDisplay(currentInput);
 };
 
-// ============================================================
 // ИНИЦИАЛИЗАЦИЯ ПРИЛОЖЕНИЯ
-// ============================================================
 
 const init = (): void => {
     // Обработчики для цифр
